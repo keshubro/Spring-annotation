@@ -2,23 +2,22 @@ package com.keshav.springdemo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("thatSillyCoach")
 public class TennisCoach implements Coach {
 	
+	@Autowired
+	@Qualifier("randomFortuneService")
 	FortuneService fortuneService;
 	
 	//Default Constructor
 	public TennisCoach()
 	{}
 	
-	//Define a setter method
-	@Autowired
-	public void setFortuneService(FortuneService theFortuneService)
-	{
-		fortuneService = theFortuneService;
-	}
+	
+	
 	@Override
 	public String getDailyWorkout() {
 		
